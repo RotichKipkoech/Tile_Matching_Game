@@ -41,10 +41,32 @@ body{
     height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
 }
+.tile1.shake{
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake{
+    0%, 100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translate(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
+}
 
 .tile .tile1 .view{    
     width: 100%;
     height: 100%;
+    pointer-events: none;
+    user-select: none;
     position: absolute;
     background: #fff;
     border-radius: 7px;
@@ -64,10 +86,10 @@ body{
 .tile1 .back-view img{
     max-width: 45px;
 }
-.tile1:hover .front-view{
+.tile1.flip .front-view{
     transform: rotateY(180deg);
 }
-.tile1:hover .back-view{
+.tile1.flip .back-view{
     transform: rotateY(0);
 }
 
