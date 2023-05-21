@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+/* h1{
+    margin-bottom: 500px;
+    margin-right: -500px;
+} */
 *{
     margin: 0;
     padding: 0;
@@ -41,8 +45,8 @@ body{
     height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
 }
-.tile1.shake{
-    animation: shake 0.35s ease-in-out;
+.tile1 .shake{
+    animation: shake 0.20s ease-in-out;
 }
 @keyframes shake{
     0%, 100%{
