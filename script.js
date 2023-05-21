@@ -22,17 +22,18 @@ function flipTile1(e){
 }
 
 function matchTile(img1, img2){
-    if(img1 === img2){
+    if(img1 === img2) {
         matchedTile1++;
-        if(matchedTile1 ==8){
-           return shuffleTile1();
+        if(matchedTile1 == 6) {
+            setTimeout(() => {
+                return shuffleTile1();
+            }, 1000);
         }
-        tile1One.removeEventListener("click",flipCard);
-        tile1Two.removeEventListener("click",flipCard);
+        tile1One.removeEventListener("click", flipTile1);
+        tile1Two.removeEventListener("click", flipTile1);
         tile1One = tile1Two="";
         return disableDeck = false;
     }
-    console.log("Tile1 not matched");
 
 setTimeout(() => {
     tile1One.classList.add("shake");
@@ -41,20 +42,22 @@ setTimeout(() => {
 
 setTimeout(() => {
     tile1One.classList.remove("shake", "flip");
-    tile1Two.classList.remove("shake","flip");
-    tile1One = tile1Two ="";
+    tile1Two.classList.remove("shake", "flip");
+    tile1One = tile1Two = "";
     disableDeck = false;
   }, 1200);
 }
 
-function shuffleCard(){
+function shuffleTile1(){
      matchedTile1 = 0;
-     tile1One = tile1Two ="";
-     tile.forEach(tile1=> {
+     tile1One = tile1Two = "";
+     tile.forEach(tile1 => {
         tile1.classList.remove("flip")
-        tile1.addEventListener("click", fliptile1);
+        tile1.addEventListener("click", flipTile1);
+});
 }
 
 tile.forEach(tile1 => {
+    tile1.classList.add("flip");
     tile1.addEventListener("click", flipTile1);
 });
