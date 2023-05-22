@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 h1{
@@ -131,7 +132,35 @@ p{
 }
 
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    .tile1 .front-view span {
+      font-size: 30px;
+    }
+  
+    .btn {
+      height: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .tile1 .front-view span {
+      font-size: 24px;
+    }
+  
+    .btn {
+      height: 30px;
+    }
+  }
 
-    
+ 
 
 
