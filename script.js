@@ -2,8 +2,12 @@ const tile = document.querySelectorAll('.tile1');
 
 let matchedTile1 = 0;
 let tile1One, tile1Two;
-
 let disableDeck=false;
+let moveCounter = 0;
+let starRating = 3;
+let timerInterval ;
+let seconds = 0;
+let minutes = 0;
 
 function flipTile1(e) {
     let clickedTile1 = e.target;
@@ -18,6 +22,8 @@ function flipTile1(e) {
         let tile1OneImg = tile1One.querySelector('img').src,
         tile1TwoImg = tile1Two.querySelector('img').src; 
         matchTile(tile1OneImg, tile1TwoImg);
+          incrementMoveCounter();
+          updateStarRating();
     }
 }
 
@@ -26,7 +32,7 @@ function matchTile(img1, img2){
         matchedTile1++;
         if (matchedTile1 == 6) {
             setTimeout(() => {
-                return shuffleTile1();
+                shuffleTile1();
             }, 1100);
         }
         tile1One.removeEventListener('click', flipTile1);
@@ -35,7 +41,7 @@ function matchTile(img1, img2){
         disableDeck = false;
     }
     else{
-
+        
        setTimeout(() => {
     tile1One.classList.add('shake');
     tile1Two.classList.add('shake');   
@@ -68,41 +74,59 @@ function shuffleTile1() {
    tile.forEach(tile1 => {
     tile1.addEventListener('click', flipTile1);
 });
+   
+
+function incrementMoveCounter() {
+      moveCounter++;
+      document.querySelector('.move').textContent = moveCounter;
+    }
+    
+    function updateStarRating() {
+      if (moveCounter > 10 && moveCounter <= 15) {
+        starRating = 2;
+      } else if (moveCounter > 15) {
+        starRating = 1;
+      }
+      const ratingElement = document.querySelector('.rating');
+      ratingElement.textContent = '⭐'.repeat(starRating);
+    }
 
 
+    
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        seconds++;
+        if (seconds === 60) {
+          seconds = 0;
+          minutes++;
+        }
+        const timeElement = document.querySelector('.time');
+        const formattedTime = `${padZero(minutes)}:${padZero(seconds)}`;
+        timeElement.textContent = formattedTime;
+      }, 1000);
+    }
+    
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+    function padZero(value){
+        return value < 10 ? '0' + value : value
+    }
 
-function restartGame() {
-    // Reset game board
-    tile.forEach(tile1 => {
-      tile1.classList.remove('flip');
-      tile1.addEventListener('click', flipTile1);
-    });
-  
-    // Reset matched tile count
-    matchedTile1 = 0;
-  
-    // Reset tile references and disableDeck flag
-    tile1One = null;
-    tile1Two = null;
-    disableDeck = false;
-  
-    // Reset move counter
-    document.querySelector('.move').textContent = '0';
-  
-    // Reset star rating
-    document.querySelector('.rating').textContent = '⭐⭐⭐';
-  
-    // Reset timer
-    stopTimer();
-    seconds = 0;
-    minutes = 0;
-    document.querySelector('.time').textContent = '00:00';
-  
-    // Start timer
-    startTimer();
-  }
-  
-  // Add event listener to the restart button
-  const restartButton = document.getElementById('restartButton');
-  restartButton.addEventListener('click', restartGame);
-  
+    function restartGame() {
+        stopTimer();
+        moveCounter = 0;
+        starRating = 3;
+        document.querySelector('.move').textContent = moveCounter;
+        document.querySelector('.rating').textContent = '⭐⭐⭐';
+        shuffleTile1();
+        startTimer();
+      }
+      
+      shuffleTile1();
+      tile.forEach(tile1 => {
+        tile1.addEventListener('click', flipTile1);
+      });
+      
+      const restartButton = document.getElementById('restartButton');
+      restartButton.addEventListener('click', restartGame);

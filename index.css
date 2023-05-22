@@ -2,8 +2,9 @@
 
 h1{
     margin-bottom: 800px;
-    margin-right: -400px;
+    margin-right: 100px;
     text-align: center;
+    color: #fff;
 }
 *{
     margin: 0;
@@ -101,10 +102,29 @@ body{
 p{
     margin-bottom: 500px;
     justify-content: center;
+    margin-right: -300px;
+    color: #fff;
 }
+.time {
+    font-size: 20px;
+    font-weight: bold;
+  }
 .btn{
     margin-top: 500px;
+    margin-left: -200px; 
+    display: block;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #4caf50;
+    font-size: 16px;
+    height: 50px;
     
+}
+.bt:hover{
+    background-color: #45a049;
+}
+.btn:focus{
+    outline:none;
 }
 
 
