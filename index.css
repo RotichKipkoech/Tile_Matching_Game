@@ -14,7 +14,7 @@ h1{
 }
 
 body{
-    background: linear-gradient(rgb(57, 53, 53) 40%, rgb(146, 78, 53) 60%);
+    background: linear-gradient(rgb(142, 134, 134) 40%, rgb(146, 78, 53) 60%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,8 @@ body{
     padding: 25px;
     background: #f8f8f8;
     border-radius: 10px;
+    margin-left: 100px;
+    justify-content: center;
     
 }
 .tile, .tile1, .view{
@@ -38,6 +40,7 @@ body{
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+
 }
 .tile .tile1{
     cursor: pointer;
@@ -74,14 +77,14 @@ body{
     pointer-events: none;
     user-select: none;
     position: absolute;
-    background: #fff;
+    background: #087d94;
     border-radius: 7px;
     backface-visibility: hidden;
     transition: transform 0.25s linear;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .tile1 .front-view span{
-    color: aqua;
+    color: rgb(232, 14, 14);
     font-size: 40px;
     
 }
@@ -115,7 +118,7 @@ p{
     display: block;
     color: #fff;
     border-radius: 5px;
-    background-color: #4caf50;
+    background-color: #087d94;
     font-size: 16px;
     height: 50px;
     
