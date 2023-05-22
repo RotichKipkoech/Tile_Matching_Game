@@ -29,7 +29,7 @@ git push origin master
 #### https://rotichkipkoech.github.io/Tile_Matching_Game
 
 ## Sketch Of the website
-
+![IMG_20230522_132300](https://github.com/RotichKipkoech/Tile_Matching_Game/assets/132645931/397a79ad-d883-4305-a5df-85f1d0a338ab)
 
 ## For Any Information Contact
 ````
