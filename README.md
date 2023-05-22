@@ -22,7 +22,7 @@ GITHUB
 git clone https://github.com/RotichKipkoech/Tile_Matching_Game.git
 git init
 git add .
-git commit -m "first commit"
+git commit -m "Initial commit"
 git push origin master
 ````
 ## Link to live site
