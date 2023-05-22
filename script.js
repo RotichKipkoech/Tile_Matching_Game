@@ -68,3 +68,41 @@ function shuffleTile1() {
    tile.forEach(tile1 => {
     tile1.addEventListener('click', flipTile1);
 });
+
+
+
+function restartGame() {
+    // Reset game board
+    tile.forEach(tile1 => {
+      tile1.classList.remove('flip');
+      tile1.addEventListener('click', flipTile1);
+    });
+  
+    // Reset matched tile count
+    matchedTile1 = 0;
+  
+    // Reset tile references and disableDeck flag
+    tile1One = null;
+    tile1Two = null;
+    disableDeck = false;
+  
+    // Reset move counter
+    document.querySelector('.move').textContent = '0';
+  
+    // Reset star rating
+    document.querySelector('.rating').textContent = '⭐⭐⭐';
+  
+    // Reset timer
+    stopTimer();
+    seconds = 0;
+    minutes = 0;
+    document.querySelector('.time').textContent = '00:00';
+  
+    // Start timer
+    startTimer();
+  }
+  
+  // Add event listener to the restart button
+  const restartButton = document.getElementById('restartButton');
+  restartButton.addEventListener('click', restartGame);
+  

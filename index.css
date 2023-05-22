@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* h1{
-    margin-bottom: 500px;
-    margin-right: -500px;
-} */
+h1{
+    margin-bottom: 800px;
+    margin-right: -400px;
+    text-align: center;
+}
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@
 }
 
 body{
-    background-color: blue;
+    background: linear-gradient(rgb(57, 53, 53) 40%, rgb(146, 78, 53) 60%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +98,14 @@ body{
     transform: rotateY(0);
 }
 
-
+p{
+    margin-bottom: 500px;
+    justify-content: center;
+}
+.btn{
+    margin-top: 500px;
+    
+}
 
 
 
